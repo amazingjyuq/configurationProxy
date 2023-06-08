@@ -17,7 +17,7 @@ func init() {
 	}
 }
 
-func setProxySettings(proxyServer string) error {
+func SetProxySettings(proxyServer string) error {
 	// 设置代理服务器和端口
 	if err := proxySettingsKey.SetStringValue("ProxyServer", proxyServer); err != nil {
 		return err
@@ -26,7 +26,7 @@ func setProxySettings(proxyServer string) error {
 	return nil
 }
 
-func enableProxySettings() error {
+func EnableProxySettings() error {
 	// 启用代理
 	if err := proxySettingsKey.SetDWordValue("ProxyEnable", 1); err != nil {
 		return err
@@ -35,7 +35,7 @@ func enableProxySettings() error {
 	return nil
 }
 
-func disableProxySettings() error {
+func DisableProxySettings() error {
 	// 禁用代理
 	if err := proxySettingsKey.SetDWordValue("ProxyEnable", 0); err != nil {
 		return err
@@ -44,7 +44,7 @@ func disableProxySettings() error {
 	return nil
 }
 
-func getProxySettings() (string, uint32, uint32, error) {
+func GetProxySettings() (string, uint32, uint32, error) {
 	// 读取代理设置
 	proxyServer, _, err := proxySettingsKey.GetStringValue("ProxyServer")
 	if err != nil {
