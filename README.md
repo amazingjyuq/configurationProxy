@@ -1,0 +1,1 @@
+基于register来实现windows代理设置的接口
