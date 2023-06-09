@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	pkg.SetProxySettings("127.0.0.1:8001")
-	pkg.EnableProxySettings()
+	pkg.WindowsSetProxySettings("127.0.0.1:8001")
+	pkg.WindowsEnableProxySettings()
 	fmt.Println("yes")
 }
