@@ -1,11 +1,11 @@
 package pkg
 
 import (
-	"net"
+	lnet "net"
 )
 
 func GetFreePort(retry int) (int, error) {
-    addr, err := net.ResolveTCPAddr("tcp", "127.0.0.1:0")
+    addr, err := lnet.ResolveTCPAddr("tcp", "127.0.0.1:0")
     if err != nil {
         if retry >= 3 {
             return 0, err
@@ -13,7 +13,7 @@ func GetFreePort(retry int) (int, error) {
             return GetFreePort(retry + 1)
         }
     }
-    l, err := net.ListenTCP("tcp", addr)
+    l, err := lnet.ListenTCP("tcp", addr)
     if err != nil {
         if retry >= 3 {
             return 0, err
@@ -22,5 +22,5 @@ func GetFreePort(retry int) (int, error) {
         }
     }
     defer l.Close()
-    return l.Addr().(*net.TCPAddr).Port, nil
+    return l.Addr().(*lnet.TCPAddr).Port, nil
 }
