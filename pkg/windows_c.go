@@ -10,7 +10,7 @@ var (
 
 func init() {
 	var err error
-	proxySettingsKey, err = registry.OpenKey(registry.CURRENT_USER, `Software\Microsoft\Windows\CurrentVersion\Internet Settings`, registry.SET_VALUE)
+	proxySettingsKey, err = registry.OpenKey(registry.LOCAL_MACHINE, `Software\Microsoft\Windows\CurrentVersion\Internet Settings`, registry.SET_VALUE)
 	if err != nil {
 		// 处理打开注册表键时的错误
 		panic(err)
